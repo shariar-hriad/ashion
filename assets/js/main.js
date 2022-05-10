@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // searchbar toggle
   const searchButton = document.querySelector('#searchButton');
   const searchForm = document.querySelector('#searchForm');
-  const overlay = document.querySelector('.overlay');
 
   searchButton.onclick = function () {
     searchForm.classList.toggle('active');

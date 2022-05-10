@@ -116,6 +116,12 @@ h1,
   }
 }
 
+.menuBtn {
+  @include breakpoint__up(992px) {
+    display: none;
+  }
+}
+
 .btn {
   font-size: 1.4rem;
   color: #111;
@@ -189,6 +195,7 @@ h1,
   position: sticky !important;
   top: 0 !important;
   width: 100% !important;
+  z-index: 99;
 }
 
 // ============header=============
@@ -196,8 +203,9 @@ h1,
   padding: 15px 0;
   background: #ffffff;
   box-shadow: 0px 5px 10px rgba(91, 91, 91, 0.1);
+  transition: all 0.3s ease-in;
   position: relative;
-  z-index: 1;
+  z-index: 10;
   @include breakpoint__up(992px) {
     padding: unset;
   }
@@ -213,7 +221,7 @@ h1,
       gap: 3rem;
     }
     @include breakpoint__up(1200px) {
-      gap: 40px;
+      gap: 3.5rem;
     }
     li {
       position: relative;
@@ -367,7 +375,7 @@ h1,
   top: 0;
   left: -100%;
   bottom: 0;
-  width: 40%;
+  width: 80%;
   transition: all 0.3s ease;
   .closeBtn {
     position: absolute;

@@ -1,55 +1,38 @@
-// sticky header
-const mainHeader = document.querySelector('#mainHeader');
-const categorySection = document.querySelector('#cateGory');
-const headerHeight = mainHeader.offsetTop;
+document.addEventListener('DOMContentLoaded', function () {
+  // searchbar toggle
+  const searchButton = document.querySelector('#searchButton');
+  const searchForm = document.querySelector('#searchForm');
+  const overlay = document.querySelector('.overlay');
 
-window.onscroll = function () {
-  makeSticky();
-};
+  searchButton.onclick = function () {
+    searchForm.classList.toggle('active');
+  };
 
-function makeSticky() {
-  if (window.scrollY > headerHeight) {
-    mainHeader.classList.add('sticky');
-    categorySection.style.paddingTop = headerHeight + 'px';
-  } else {
-    mainHeader.classList.remove('sticky');
-    categorySection.style.paddingTop = 0;
-  }
-}
+  // mobile aside
+  const mobileAside = document.getElementById('mobileAside');
+  const menuButton = document.querySelector('.menuBtn');
+  const closeButton = document.querySelector('.closeBtn');
 
-// searchbar toggle
-const searchButton = document.querySelector('#searchButton');
-const searchForm = document.querySelector('#searchForm');
-const overlay = document.querySelector('.overlay');
+  menuButton.onclick = function () {
+    mobileAside.classList.add('showAsideMenu');
+    overlay.classList.add('showOverlay');
+  };
 
-searchButton.onclick = function () {
-  searchForm.classList.toggle('active');
-};
-
-// mobile aside
-const mobileAside = document.getElementById('mobileAside');
-const menuButton = document.querySelector('.menuBtn');
-const closeButton = document.querySelector('.closeBtn');
-
-menuButton.onclick = function () {
-  mobileAside.classList.add('showAsideMenu');
-  overlay.classList.add('showOverlay');
-};
-
-closeButton.onclick = function () {
-  mobileAside.classList.remove('showAsideMenu');
-  overlay.classList.remove('showOverlay');
-};
-
-document.onclick = function (e) {
-  if (!searchButton.contains(e.target) && !searchForm.contains(e.target)) {
-    searchForm.classList.remove('active');
-  }
-  if (!menuButton.contains(e.target) && !closeButton.contains(e.target)) {
+  closeButton.onclick = function () {
     mobileAside.classList.remove('showAsideMenu');
     overlay.classList.remove('showOverlay');
-  }
-};
+  };
+
+  document.onclick = function (e) {
+    if (!searchButton.contains(e.target) && !searchForm.contains(e.target)) {
+      searchForm.classList.remove('active');
+    }
+    if (!menuButton.contains(e.target) && !closeButton.contains(e.target)) {
+      mobileAside.classList.remove('showAsideMenu');
+      overlay.classList.remove('showOverlay');
+    }
+  };
+});
 
 // products
 const productList = document.querySelector('#productList');

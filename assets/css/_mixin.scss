@@ -1,0 +1,5 @@
+@mixin breakpoint__up($width) {
+  @media only screen and (min-width: $width) {
+    @content;
+  }
+}

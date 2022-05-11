@@ -22,6 +22,8 @@ document.addEventListener('DOMContentLoaded', function () {
     overlay.classList.remove('showOverlay');
   };
 
+  const overlay = document.querySelector('.overlay');
+
   document.onclick = function (e) {
     if (!searchButton.contains(e.target) && !searchForm.contains(e.target)) {
       searchForm.classList.remove('active');

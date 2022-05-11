@@ -29,7 +29,8 @@ body {
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
+  vertical-align: middle;
 }
 
 a {
@@ -167,7 +168,7 @@ h1,
 .sectionPadding {
   padding: 2rem 0;
   @include breakpoint__up(992px) {
-    padding: 3rem 0;
+    padding: 6rem 0;
   }
 }
 
@@ -335,7 +336,7 @@ h1,
       position: absolute;
       width: 240px;
       top: 100%;
-      right: 0;
+      right: 30px;
       z-index: 999;
       transform: scale(0);
       transition: all 0.5s ease;
@@ -372,7 +373,8 @@ h1,
   top: 0;
   left: -100%;
   bottom: 0;
-  width: 80%;
+  max-width: 300px;
+  width: 100%;
   transition: all 0.3s ease;
   .closeBtn {
     position: absolute;
@@ -409,7 +411,6 @@ h1,
 // ============category section=============
 .category__section {
   margin-top: 13px;
-
   .categories__item {
     height: 314px;
     padding-left: 30px;
@@ -419,7 +420,8 @@ h1,
     margin-bottom: 1rem;
     position: relative;
     z-index: 0;
-    @include breakpoint__up(576px) {
+    @include breakpoint__up(992px) {
+      margin-right: 1rem;
     }
     &::after {
       position: absolute;
@@ -647,3 +649,40 @@ h1,
   }
 }
 // ============banner============
+
+// ============trend============
+.trend {
+  &__content {
+    .sectionTitle {
+      margin-bottom: 4.5rem;
+    }
+  }
+  &__item {
+    display: flex;
+    margin-bottom: 2rem;
+    max-width: 25rem;
+    width: 100%;
+    &_img {
+      flex-basis: 100%;
+    }
+    &_details {
+      flex-basis: 100%;
+      h6 {
+        font-size: 1.4rem;
+        color: #111;
+        margin-bottom: 5px;
+      }
+      .ratings {
+        margin-bottom: 6px;
+        font-size: 1rem;
+        color: #e3c01c;
+        margin-right: -4px;
+      }
+      .price {
+        color: #111;
+        font-weight: 600;
+      }
+    }
+  }
+}
+// ============trend============

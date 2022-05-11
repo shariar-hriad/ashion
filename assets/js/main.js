@@ -82,7 +82,7 @@ const menuItems = [
   'all',
   ...new Set(products.map((product) => product.category)),
 ];
-
+7;
 // filter button
 const filterButton = document.querySelector('#filterButton');
 filterButton.innerHTML = menuItems
@@ -147,3 +147,45 @@ $(document).ready(function () {
     autoplayHoverPause: true,
   });
 });
+
+// count down
+function countDown() {
+  const second = document.querySelector('#seconds');
+  const minute = document.querySelector('#minutes');
+  const hour = document.querySelector('#hours');
+  const day = document.querySelector('#days');
+
+  let endTime = new Date('30 June 2022 9:56 GMT+06:00');
+  endTime = Date.parse(endTime) / 1000;
+
+  let currentTime = new Date();
+  currentTime = Date.parse(currentTime) / 1000;
+
+  let timeLeft = endTime - currentTime;
+
+  let days = Math.floor(timeLeft / 86400),
+    hours = Math.floor((timeLeft - days * 86400) / 3600),
+    minutes = Math.floor((timeLeft - days * 86400 - hours * 3600) / 60),
+    seconds = Math.floor(timeLeft - days * 86400 - hours * 3600 - minutes * 60);
+
+  if (hours < '10') {
+    hours = '0' + hours;
+  }
+
+  if (minutes < '10') {
+    minutes = '0' + minutes;
+  }
+
+  if (seconds < '10') {
+    seconds = '0' + seconds;
+  }
+
+  second.innerText = seconds;
+  minute.innerText = minutes;
+  hour.innerText = hours;
+  day.innerText = days;
+}
+
+setInterval(() => {
+  countDown();
+}, 1000);
